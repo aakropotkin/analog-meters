@@ -1,0 +1,180 @@
+/*
+    PC_Meter
+    
+    Drives PC Meter device.
+    http://www.lungstruck.com/projects/pc-meter
+
+    Written in 2013 by Scott W. Vincent
+    http://www.lungstruck.com
+    
+    To the extent possible under law, the author has dedicated all copyright and related and neighboring rights to this
+    software to the public domain worldwide. This software is distributed without any warranty. 
+
+    You should have received a copy of the CC0 Public Domain Dedication along with this software.
+    If not, see <http://creativecommons.org/publicdomain/zero/1.0/>. 
+*/
+
+//Constants
+const int METER_A_PIN = 11;        //Meter A pin
+const int METER_B_PIN = 10;        //Meter B pin
+const int METER_A_MAX = 246;       //100% location for meter A
+const int METER_B_MAX = 248;       //100% location for meter B
+const int LED_A_GREEN = 4;         //LED A Green Pin
+const int LED_A_RED = 5;           //LED A Red Pin
+const int LED_B_GREEN = 2;         //LED B Green Pin
+const int LED_B_RED = 3;           //LED B Red Pin
+const float RED_ZONE_PERC = .80;   //Percent at which LED goes from green to red
+const long SERIAL_TIMEOUT = 3000;  //How long to wait until serial "times out"
+const int CPU_READINGS = 4;        //Number of readings to avg. for CPU load%
+
+//Variables
+int meterARedZone = 0;                //Meter A red zone
+int meterBRedZone = 0;                //Meter B red zone
+unsigned long lastSerialRecd = 0;     //Time last serial recd
+int cpuReadings[CPU_READINGS];        //array of cpu load% readings
+int cpuTotal = 0;                     //CPU load running total
+int cpuIndex = 0;                     //current position in array for cpu load%
+
+void setup()
+{
+ Serial.begin(9600);
+  
+ //Setup pin modes
+ pinMode(METER_A_PIN, OUTPUT);
+ pinMode(METER_B_PIN, OUTPUT);
+ pinMode(LED_A_GREEN, OUTPUT);
+ pinMode(LED_A_RED, OUTPUT);
+ pinMode(LED_B_GREEN, OUTPUT);
+ pinMode(LED_B_RED, OUTPUT);
+ 
+ //Calculate red zone and multiplier for both meters
+ meterARedZone = METER_A_MAX * RED_ZONE_PERC;
+ meterBRedZone = METER_B_MAX * RED_ZONE_PERC;
+ 
+ initCpuValues();
+ meterStartup();
+ 
+ //Give meter some time to start receiving data
+ lastSerialRecd = millis();
+}
+
+
+void loop()
+{
+  char buffer[5];                //buffer
+  int perc = 0;                  //reading
+  
+  while (Serial.available() > 0)
+  {
+   Serial.readBytesUntil('\r', buffer, 5);
+   
+   //Thought this might be needed based on example I studied, seems okay without
+   //buffer[4] = '\0';
+
+   switch (buffer[0])
+   {
+    case 'C':
+     //CPU - value is "smoothed".  See tutorial for more info:
+     //http://arduino.cc/en/Tutorial/Smoothing
+     cpuTotal = cpuTotal - cpuReadings[cpuIndex];
+     cpuReadings[cpuIndex] = min(atoi(&buffer[1]), 100);
+     cpuTotal = cpuTotal + cpuReadings[cpuIndex];
+     perc = cpuTotal / CPU_READINGS;
+     
+     setMeterAndLED(METER_A_PIN, LED_A_GREEN, LED_A_RED, perc, meterARedZone, METER_A_MAX);
+     
+     //Advance index
+     cpuIndex = cpuIndex + 1;
+     if (cpuIndex >= CPU_READINGS)
+       cpuIndex = 0;
+     break;
+    case 'M':
+     //Memory
+     perc = min(atoi(&buffer[1]), 100);
+     setMeterAndLED(METER_B_PIN, LED_B_GREEN, LED_B_RED, perc, meterBRedZone, METER_B_MAX);
+     break;
+   }
+   
+   //Reset for next measurement
+   perc = 0;
+   memset(buffer, ' ', 5);
+   
+   //Update last serial received
+   lastSerialRecd = millis();
+  }
+  
+  //Check for timeout start "screen saver" if so
+  unsigned long currentMillis = millis();
+  if (currentMillis - lastSerialRecd > SERIAL_TIMEOUT)
+    screenSaver();
+}
+
+
+void meterStartup()
+{
+ //Max both meters as test
+ setMeterAndLED(METER_A_PIN, LED_A_GREEN, LED_A_RED, 100, meterARedZone, METER_A_MAX);
+ setMeterAndLED(METER_B_PIN, LED_B_GREEN, LED_B_RED, 100, meterBRedZone, METER_B_MAX);
+ delay(2000);
+}
+
+//Set Meter position and LED color.
+void setMeterAndLED(int meterPin, int greenPin, int redPin, int perc, int redZone, int meterMax)
+{
+  //Map perc to proper meter position
+  //int pos = perc * meterMultiplier;
+  int pos = map(perc, 0, 100, 0, meterMax);
+  
+  //Set meter
+  analogWrite(meterPin, pos);
+  
+  //Set LED
+  int isGreen = (pos <  redZone);
+  digitalWrite(greenPin, isGreen);
+  digitalWrite(redPin, !isGreen);
+}
+
+
+//Move needles and blink LEDs when no serial rec'd for awhile.
+//Stop once serial data rec'd again.
+void screenSaver()
+{
+ analogWrite(METER_A_PIN, 0);
+ analogWrite(METER_B_PIN, 0);
+ int aPos = 0;
+ int bPos = 0;
+ int incAmt = 0;
+ 
+ //Reset CPU readings
+ initCpuValues();
+ 
+ while (Serial.available() == 0)
+ {
+   //B meter position is opposite of A meter position
+   bPos = 100 - aPos;
+   
+   //Move needles
+   setMeterAndLED(METER_A_PIN, LED_A_GREEN, LED_A_RED, aPos, meterARedZone, METER_A_MAX);
+   setMeterAndLED(METER_B_PIN, LED_B_GREEN, LED_B_RED, bPos, meterBRedZone, METER_B_MAX);
+   
+   //Change meter direction if needed.
+   if (aPos == 100)
+     incAmt = -1;
+   else if (aPos == 0)
+     incAmt = 1;
+   
+   //Increment position
+   aPos = aPos + incAmt;
+   
+   delay(50);
+ } 
+}
+
+
+//Init CPU array/total with zeroes
+void initCpuValues()
+{
+  for (int counter = 0; counter < CPU_READINGS; counter++)
+    cpuReadings[counter] = 0;
+    cpuTotal = 0;
+}

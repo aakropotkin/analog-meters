@@ -1,0 +1,29 @@
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\bin\Release\PcMeter.exe
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\bin\Release\PcMeter.pdb
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.MainForm.resources
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.Properties.Resources.resources
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.exe
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.pdb
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\bin\Release\PcMeter.exe.config
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.AboutForm.resources
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\bin\Release\PcMeter.exe.config
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.exe
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.pdb
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\bin\Release\PcMeter.exe
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\bin\Release\PcMeter.pdb
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.AboutForm.resources
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.MainForm.resources
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.Properties.Resources.resources
+C:\Users\svincent\Desktop\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.csproj.GenerateResource.Cache
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\bin\Release\PcMeter.exe.config
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.exe
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.pdb
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\bin\Release\PcMeter.exe
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\bin\Release\PcMeter.pdb
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.AboutForm.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.MainForm.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.Properties.Resources.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Release\PcMeter.csproj.GenerateResource.Cache

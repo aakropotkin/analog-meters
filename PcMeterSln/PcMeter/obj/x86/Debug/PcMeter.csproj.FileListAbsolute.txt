@@ -1,0 +1,20 @@
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\bin\Debug\PcMeter.exe
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\bin\Debug\PcMeter.pdb
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.MainForm.resources
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.Properties.Resources.resources
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.exe
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.pdb
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\bin\Debug\PcMeter.exe.config
+C:\Documents and Settings\Scott\My Documents\Visual Studio 2010\Projects\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.AboutForm.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\bin\Debug\PcMeter.exe.config
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.exe
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.pdb
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\bin\Debug\PcMeter.exe
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\bin\Debug\PcMeter.pdb
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.AboutForm.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.MainForm.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.Properties.Resources.resources
+C:\Users\svincent\CloudStation\pcmeter\PcMeterSln\PcMeter\obj\x86\Debug\PcMeter.csproj.GenerateResource.Cache
